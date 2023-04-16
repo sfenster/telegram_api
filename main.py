@@ -15,6 +15,7 @@ video_min_duration = 10
 downloads = None
 home = os.path.expanduser('~')
 
+#Get the environment object for config.py using the 'APP_SETTINGS' env variable
 envclass_name, envsubclass_name =os.environ.get("APP_SETTINGS", 'config.DevelopmentConfig').split(".")
 envclass = importlib.import_module(envclass_name)
 env = getattr(envclass, envsubclass_name)
@@ -151,16 +152,28 @@ async def rip_channel(id, limit):
 
 async def main():
     # Authenticate with the Telegram API
-    prev_messages_limit = None
+    global downloads
+    prev_messages_limit = 5
     single_chat_id = -1001529959609
     single_chat_msg_limit = None
     channel = [-1001576804766, 
-               -1001844834912, 
                -1001529959609, 
-               -1001519877797,
                -1001835054584,
-               -1001572063931, 
                -1001748083163,
+               -1001756874600,
+               -1001572063931,
+               -1001807527093,
+               -1001860438055,
+               -1001651360534,
+               -1001536882363,
+               -1001983253182,
+               -1001873099235,
+               -1001750769512,
+               -1001726765333,
+               -1001878723718,
+               -1001181167174,
+               -1001699507129,
+               -1001883775698
                ]
     
     downloads = get_download_dir()
